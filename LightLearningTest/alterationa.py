@@ -1,10 +1,15 @@
 import pandas as pd
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LinearRegression
+import scikitplot as skplt
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 df = pd.read_csv('alterationa1.csv')
-model = LogisticRegression()
+model = LinearRegression()
 model.max_iter = 12000
+XT = []
+yt = []
 def fitthemodel():
     XT = df[['BlueAPCP_a', 'BlueAPC', 'BlueTPCP_a', 'BlueTPC', 'BlueCPC_c', 'BlueEIEP_a', 'RedAPCP_a', 'RedAPC', 'RedTPCP_a', 'RedTPC', 'RedCPC_c', 'RedEIEP_a']].values
     yt = df['BlueFinalDiff'].values
